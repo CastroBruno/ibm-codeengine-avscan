@@ -7,7 +7,7 @@ require("dotenv").config({
 const fs = require("fs");
 var config = {
     endpoint: process.env.COS_ENDPOINT,
-    apiKeyId: process.env.COS_SECRET_APIKEY,
+    apiKeyId: process.env.COS_SECRET_IAM_APIKEY_ID,
     ibmAuthEndpoint: "https://iam.cloud.ibm.com/identity/token",
   };
 var cosClient = new myCOS.S3(config);
