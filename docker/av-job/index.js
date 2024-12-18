@@ -7,7 +7,7 @@ require("dotenv").config({
 const fs = require("fs");
 var config = {
     endpoint: process.env.COS_ENDPOINT,
-    apiKeyId: process.env.COS_SECRET_APIKEY,
+    apiKeyId: process.env.COS_SECRET_IAM_APIKEY_ID,
     serviceInstanceID: process.env.COS_SECRET_RESOURCE_INSTANCE_ID,
   };
 var cosClient = new myCOS.S3(config);
