@@ -7,8 +7,7 @@ require("dotenv").config({
 const fs = require("fs");
 var config = {
     endpoint: process.env.COS_ENDPOINT,
-    acessKeyId: process.env.COS_SECRET_COS_HMAC_KEYS_ACESS_KEY_ID,
-    secretAcessKey: process.env.COS_SECRET_COS_HMAC_KEYS_SECRET_ACESS_KEY,
+    apiKey: process.env.COS_SECRET_APIKEY,
     serviceInstanceID: process.env.COS_SECRET_RESOURCE_INSTANCE_ID,
     ibmAuthEndpoint: "https://iam.cloud.ibm.com/identity/token",
   };
