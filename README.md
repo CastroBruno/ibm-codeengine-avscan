@@ -78,7 +78,7 @@ This tutorial requires to:
 
 1. Go to the av-job folder
    ```console
-       $ cd ./container/av-job
+       $ cd ./docker/av-job
    ```
 2. Build the image
    ```console
