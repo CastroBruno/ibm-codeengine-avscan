@@ -9,7 +9,6 @@ var config = {
     endpoint: process.env.COS_ENDPOINT,
     apiKeyId: process.env.COS_SECRET_APIKEY,
     serviceInstanceID: process.env.COS_SECRET_RESOURCE_INSTANCE_ID,
-    endpoint: "https://control.cloud-object-storage.cloud.ibm.com/v2/endpoints",
   };
 var cosClient = new myCOS.S3(config);
 const NodeClam = require('clamscan');
