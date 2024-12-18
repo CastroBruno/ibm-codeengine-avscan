@@ -23,7 +23,7 @@ This tutorial requires to:
    - Windows (Powershell): `iex(New-Object Net.WebClient).DownloadString('https://clis.cloud.ibm.com/install/powershell')`
 2. Install the IBM Cloud Code Engine CLI Plugin: `ibmcloud plugin install code-engine`
 3. Install the IBM Cloud COS CLI Plugin: `ibmcloud plugin install cloud-object-storage`
-4. Install the IBM Cloud Container Registry Plugin: `ibmcloud plugin install cr`
+4. Install the IBM Cloud Container Registry Plugin: `ibmcloud plugin install cr` (If using IBM Cloud Registry)
 
 ## Setup
 
