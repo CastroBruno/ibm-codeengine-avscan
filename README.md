@@ -88,16 +88,16 @@ This tutorial requires to:
    ```console
        $ docker push <YOUR_REGISTRY>/<YOUR_IMAGE_NAME>
    ```
-4. Create the av-job in IBM Code Engine with at least 2GB of RAM, because the anti-virus software needs that much, ClamAV recommends 4GB
+4. Create the av-job in IBM Code Engine with at least 2GB of RAM, because the anti-virus software needs that much, ClamAV recommends 4GB, for storage the instance has a limitation of memory size to use.
    ```console
-      $ ibmcloud ce job create -n vir-scan -i <YOUR_REGISTRY>/<YOUR_IMAGE_NAME> --memory 4G
+      $ ibmcloud ce job create -n av-scan -i <YOUR_REGISTRY>/<YOUR_IMAGE_NAME> --memory 4G --ephemeral-storage 4G
    ```
 
 ### Step 4: Connect the virus-scan job with your IBM COS instance
 
 1. Create a binding for Object Storage service with a prefix **COS** for ease of use in your application. Creating this binding will give your Code Engine application access to the service credentials for IBM Cloud Object Storage so that it can store files in COS. _Note: Each service binding can be configured to use a custom environment variable prefix by using the --prefix flag._
    ```console
-      $ ibmcloud code-engine job bind --name vir-scan --service-instance
+      $ ibmcloud code-engine job bind --name av-scan --service-instance
         code-engine-cos --service-credential cos-for-code-engine --prefix COS_SECRET
    ```
 2. You will also need to provide the job with your bucket names where you want to move the files, as well as your COS endpoint. Define a configmap to hold the bucket name and the endpoint as the information isn't sensitive. ConfigMaps are a Kubernetes object, which allows you to decouple configuration artifacts from image content to keep containerized applications portable. You could create this configmap from a file or from a key value pair -- for now we'll use a key value pair with the `--from-literal` flag.
@@ -106,13 +106,13 @@ This tutorial requires to:
    ```
 3. With the configmap defined (You can also change this via UI), you can now update the job by asking Code Engine to set environment variables in the runtime of the job based on the values in the configmap. Update the job with the following command:
    ```console
-     $ ibmcloud code-engine job update --name vir-scan --env-from-configmap virus-scan-configuration
+     $ ibmcloud code-engine job update --name av-scan --env-from-configmap virus-scan-configuration
    ```
 ### Step 5: Create the CE Event Subscription for COS Uploads
 
 1. Create a Code Engine Event Subscription from the entry COS bucket. This allows Code Engine to know when a file is uploaded to object storage and run the scan job. For our uses this will use default prefix (CE prefix) and will also send the file name to Code Engine.
    ```console
-      $ ibmcloud ce subscription cos create --name code-engine-cos --destination vir-scan --bucket <ENTRY_BUCKET_NAME>
+      $ ibmcloud ce subscription cos create --name code-engine-cos --destination av-scan --bucket <ENTRY_BUCKET_NAME>
    ```
 
 ### Step 6: Try it out
