@@ -7,9 +7,9 @@ require("dotenv").config({
 const fs = require("fs");
 var config = {
     endpoint: process.env.COS_ENDPOINT,
-    apiKey: process.env.COS_SECRET_APIKEY,
+    apiKeyId: process.env.COS_SECRET_APIKEY,
     serviceInstanceID: process.env.COS_SECRET_RESOURCE_INSTANCE_ID,
-    ibmAuthEndpoint: "https://iam.cloud.ibm.com/identity/token",
+    endpoint: "https://control.cloud-object-storage.cloud.ibm.com/v2/endpoints",
   };
 var cosClient = new myCOS.S3(config);
 const NodeClam = require('clamscan');
