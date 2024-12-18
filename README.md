@@ -112,7 +112,7 @@ This tutorial requires to:
 
 1. Create a Code Engine Event Subscription from the entry COS bucket. This allows Code Engine to know when a file is uploaded to object storage and run the scan job. For our uses this will use default prefix (CE prefix) and will also send the file name to Code Engine.
    ```console
-      $ ibmcloud ce subscription cos create --name code-engine-cos --destination av-scan --bucket <ENTRY_BUCKET_NAME>
+      $ ibmcloud ce subscription cos create --name code-engine-cos --destination av-scan --destination-type job --bucket <ENTRY_BUCKET_NAME>
    ```
 
 ### Step 6: Try it out
