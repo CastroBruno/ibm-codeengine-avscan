@@ -1,4 +1,4 @@
-# How to provide Virus-Scanning as a Service utilizing the serverless IBM Code Engine
+# How to provide Virus-Scanning as a Service utilizing IBM Code Engine
 
 This project was initiated by Janik Buecher(https://github.com/JanikBuecher/code-engine-virus-scan).
 
