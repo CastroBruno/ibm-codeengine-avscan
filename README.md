@@ -97,8 +97,7 @@ This tutorial requires to:
 
 1. Create a binding for Object Storage service with a prefix **COS** for ease of use in your application. Creating this binding will give your Code Engine application access to the service credentials for IBM Cloud Object Storage so that it can store files in COS. _Note: Each service binding can be configured to use a custom environment variable prefix by using the --prefix flag._
    ```console
-      $ ibmcloud code-engine job bind --name av-scan --service-instance
-        code-engine-cos --service-credential cos-for-code-engine --prefix COS_SECRET
+      $ ibmcloud code-engine job bind --name av-scan --service-instance code-engine-cos --service-credential cos-for-code-engine --prefix COS_SECRET
    ```
 2. You will also need to provide the job with your bucket names where you want to move the files, as well as your COS endpoint. Define a configmap to hold the bucket name and the endpoint as the information isn't sensitive. ConfigMaps are a Kubernetes object, which allows you to decouple configuration artifacts from image content to keep containerized applications portable. You could create this configmap from a file or from a key value pair -- for now we'll use a key value pair with the `--from-literal` flag.
    ```console
