@@ -24,6 +24,7 @@ This tutorial requires to:
 2. Install the IBM Cloud Code Engine CLI Plugin: `ibmcloud plugin install code-engine`
 3. Install the IBM Cloud COS CLI Plugin: `ibmcloud plugin install cloud-object-storage`
 4. Install the IBM Cloud Container Registry Plugin: `ibmcloud plugin install cr` (If using IBM Cloud Registry)
+5. Code Engine Docs if needed: https://cloud.ibm.com/docs/codeengine?topic=codeengine-getting-started
 
 ## Setup
 
@@ -103,7 +104,7 @@ This tutorial requires to:
    ```console
      $ ibmcloud code-engine job update --name av-scan --env-from-configmap virus-scan-configuration
    ```
-3. Create a binding for Object Storage service with a prefix **COS_SECRET** for ease of use in your application. Creating this binding will give your Code Engine application access to the service credentials for IBM Cloud Object Storage so that it can store files in COS. _Note: Each service binding can be configured to use a custom environment variable prefix by using the --prefix flag._
+3. Create a binding for Object Storage service with a prefix **COS_SECRET** for ease of use in your application. Creating this binding will give your Code Engine application access to the service credentials for IBM Cloud Object Storage so that it can store files in COS. _Note: Each service binding can be configured to use a custom environment variable prefix by using the --prefix flag and Role can be configured with --role flag (Defaults to Manager)._
    ```console
       $ ibmcloud code-engine job bind --name av-scan --service-instance code-engine-cos --prefix COS_SECRET
    ```
