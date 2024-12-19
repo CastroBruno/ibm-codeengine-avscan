@@ -6,7 +6,7 @@ require("dotenv").config({
 });
 const fs = require("fs");
 var config = {
-    endpoints: process.env.COS_SECRET_ENDPOINTS,
+    endpoint: process.env.COS_SECRET_ENDPOINTS,
     apiKeyId: process.env.COS_SECRET_APIKEY,
     serviceInstanceId: process.env.COS_SECRET_RESOURCE_INSTANCE_ID,
   };
